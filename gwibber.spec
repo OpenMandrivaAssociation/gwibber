@@ -1,19 +1,12 @@
-%define version 1.2.0
-%define bzr_rev 347
 
 Name:		gwibber
-Version:	1.2.0
-Release:	%mkrel 0.r%{bzr_rev}
+Version:	2.29.1
+Release:	%mkrel 1 
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
 URL:		https://launchpad.net/gwibber
-# The source for this package was pulled from upstream's vcs.  Use the
-# following commands to generate the tarball:
-#  bzr branch -r %{bzr_rev} lp:gwibber gwibber
-#  rm -rf gwibber/.bzr*
-#  tar -czvf gwibber-1.2.0-r%{bzr_rev}bzr.tar.gz gwibber
-Source0:	%{name}-%{version}-r%{bzr_rev}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 Requires:	python-mako
 Requires:	dbus-python gnome-python-gconf python-pyxml
@@ -29,7 +22,7 @@ and GTK. It supports Twitter, Jaiku, Identi.ca, Facebook, and Digg.
 
 
 %prep
-%setup -q -n gwibber
+%setup -q
 sed -i -e '/^#! \?\//, 1d' $(find %{name} | grep "\.py$")
 
 %build
@@ -58,7 +51,9 @@ rm -rf %{buildroot}
 %doc AUTHORS README
 %{python_sitelib}/%{name}
 %{python_sitelib}/%{name}-*.egg-info
-%{_bindir}/%{name}
+%{_bindir}/*
 %{_datadir}/%{name}
 %{_datadir}/pixmaps/%{name}.svg
 %{_datadir}/applications/%{name}.desktop
+%{_datadir}/dbus-1/services/*
+%{_datadir}/indicators/messages/applications/%{name}
