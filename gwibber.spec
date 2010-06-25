@@ -1,7 +1,7 @@
 
 Name:		gwibber
 Version:	2.30.0.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
@@ -9,7 +9,7 @@ URL:		https://launchpad.net/gwibber
 Source0:	http://launchpad.net/gwibber/2.30/%{version}/+download/gwibber-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 Requires:	python-mako
-Requires:	dbus-python gnome-python-gconf python-pyxml
+Requires:	dbus-python gnome-python-gconf python-pyxml python-curl
 Requires:	python-webkitgtk python-feedparser pyxdg python-imaging
 Requires:	python-egenix-mx-base
 Requires:	python-sexy python-simplejson >= 1.9.1 gnome-python-desktop
