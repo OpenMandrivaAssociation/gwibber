@@ -1,12 +1,18 @@
 
 Name:		gwibber
 Version:	2.30.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
 URL:		https://launchpad.net/gwibber
 Source0:	http://launchpad.net/gwibber/2.30/%{version}/+download/gwibber-%{version}.tar.gz
+# (misc) after some debugging, i have seen that the new desktopcouch, or couchdb, or what ever do not
+# includes document id anymore in record that are sent back. Since they were redundant anyway, I just
+# copy them from argument. Not sure if this is the right fix however.
+# and of course, as the patch rely on a non merged branch of one lib, I think it may not be upstreamable
+# now ( 17/08/2010 )
+Patch0:     gwibber-2.30.1-fix_for_new_couchdb.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 Requires:	python-mako
 Requires:	dbus-python gnome-python-gconf python-pyxml python-curl
@@ -24,6 +30,7 @@ and GTK. It supports Twitter, Jaiku, Identi.ca, Facebook, and Digg.
 
 %prep
 %setup -q
+%patch0 -p0
 sed -i -e '/^#! \?\//, 1d' $(find %{name} | grep "\.py$")
 
 %build
