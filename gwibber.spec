@@ -13,7 +13,7 @@ Requires:	dbus-python gnome-python-gconf python-pyxml python-curl
 Requires:	python-webkitgtk python-feedparser pyxdg python-imaging
 Requires:	python-egenix-mx-base
 Requires:	python-sexy python-simplejson >= 1.9.1 gnome-python-desktop
-Requires:	desktopcouch
+Requires:	desktopcouch python-curl
 BuildRequires:	python-devel desktop-file-utils intltool gettext python-distutils-extra
 BuildArch:	noarch
 
