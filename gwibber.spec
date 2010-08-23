@@ -1,7 +1,7 @@
 
 Name:		gwibber
-Version:	2.30.1
-Release:	%mkrel 2
+Version:	2.31.90
+Release:	%mkrel 1
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
@@ -30,7 +30,7 @@ and GTK. It supports Twitter, Jaiku, Identi.ca, Facebook, and Digg.
 
 %prep
 %setup -q
-%patch0 -p0
+#%patch0 -p0
 sed -i -e '/^#! \?\//, 1d' $(find %{name} | grep "\.py$")
 
 %build
