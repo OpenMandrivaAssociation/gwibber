@@ -1,12 +1,12 @@
 
 Name:		gwibber
-Version:	2.31.90
+Version:	2.31.91
 Release:	%mkrel 1
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
 URL:		https://launchpad.net/gwibber
-Source0:	http://launchpad.net/gwibber/2.30/%{version}/+download/gwibber-%{version}.tar.gz
+Source0:	http://launchpad.net/gwibber/trunk/%{version}/+download//gwibber-%{version}.tar.gz
 # (misc) after some debugging, i have seen that the new desktopcouch, or couchdb, or what ever do not
 # includes document id anymore in record that are sent back. Since they were redundant anyway, I just
 # copy them from argument. Not sure if this is the right fix however.
