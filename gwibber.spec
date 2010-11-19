@@ -1,7 +1,7 @@
 
 Name:		gwibber
-Version:	2.31.91
-Release:	%mkrel 2
+Version:	2.32.2
+Release:	%mkrel 1
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
@@ -12,7 +12,7 @@ Source0:	http://launchpad.net/gwibber/trunk/%{version}/+download//gwibber-%{vers
 # copy them from argument. Not sure if this is the right fix however.
 # and of course, as the patch rely on a non merged branch of one lib, I think it may not be upstreamable
 # now ( 17/08/2010 )
-Patch0:     gwibber-2.30.1-fix_for_new_couchdb.diff
+#Patch0:     gwibber-2.30.1-fix_for_new_couchdb.diff
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 Requires:	python-mako
 Requires:	dbus-python gnome-python-gconf python-pyxml python-curl
