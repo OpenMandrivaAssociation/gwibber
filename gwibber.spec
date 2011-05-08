@@ -1,17 +1,13 @@
 Name:		gwibber
 Version:	3.0.0.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
 URL:		https://launchpad.net/gwibber
 Source0:	http://launchpad.net/gwibber/trunk/%{version}/+download//gwibber-%{version}.tar.gz
-# (misc) after some debugging, i have seen that the new desktopcouch, or couchdb, or what ever do not
-# includes document id anymore in record that are sent back. Since they were redundant anyway, I just
-# copy them from argument. Not sure if this is the right fix however.
-# and of course, as the patch rely on a non merged branch of one lib, I think it may not be upstreamable
-# now ( 17/08/2010 )
-#Patch0:     gwibber-2.30.1-fix_for_new_couchdb.diff
+Source1:	http://ppa.launchpad.net/gwibber-team/ppa/ubuntu/pool/main/g/gwibber-service-sina/gwibber-service-sina_0.0.1+r12-2.tar.gz
+Source2:	http://ppa.launchpad.net/gwibber-team/ppa/ubuntu/pool/main/g/gwibber-service-sohu/gwibber-service-sohu_0.0.1+r13-1.tar.gz
 Requires:	python-mako
 Requires:	dbus-python gnome-python-gconf python-pyxml python-curl
 Requires:	python-webkitgtk python-feedparser pyxdg python-imaging
@@ -27,16 +23,28 @@ and GTK. It supports Twitter, Jaiku, Identi.ca, Facebook, and Digg.
 
 
 %prep
-%setup -q
-#%patch0 -p0
+%setup -q -a1 -a2
 sed -i -e '/^#! \?\//, 1d' $(find %{name} | grep "\.py$")
 
 %build
 %{__python} setup.py build
 
+for i in gwibber-service-*
+do
+	pushd $i
+	%{__python} setup.py build
+	popd
+done
 
 %install
 %{__python} setup.py install --prefix %{_prefix} --skip-build --root %{buildroot}
+
+for i in gwibber-service-*
+do
+	pushd $i
+	%{__python} setup.py install --prefix %{_prefix} --skip-build --root %{buildroot}
+	popd
+done
 
 ## Reinstall .desktop file
 #rm -rf %{buildroot}%{_datadir}/applications
@@ -55,7 +63,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 %doc AUTHORS README
 %{python_sitelib}/%{name}
-%{python_sitelib}/%{name}-*.egg-info
+%{python_sitelib}/*.egg-info
 %{_bindir}/*
 %{_datadir}/%{name}
 %{_datadir}/pixmaps/%{name}.svg
