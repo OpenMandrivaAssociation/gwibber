@@ -1,0 +1,16 @@
+--- gwibber-0.3.pc.in~	2012-08-21 12:14:09.000000000 +0800
++++ gwibber-0.3.pc.in	2012-12-11 16:39:43.903569271 +0800
+@@ -8,4 +8,4 @@
+ Version: @VERSION@
+ Libs: -L${libdir} -lgwibber
+ Cflags: -I${includedir}
+-Requires: glib-2.0 gthread-2.0 gobject-2.0 gio-2.0 gio-unix-2.0 dbus-glib-1 gtk+-2.0
++Requires: glib-2.0 gthread-2.0 gobject-2.0 gio-2.0 gio-unix-2.0 gee-1.0 dee-1.0 json-glib-1.0
+--- gwibber-gtk-0.3.pc.in~	2012-08-21 12:14:09.000000000 +0800
++++ gwibber-gtk-0.3.pc.in	2012-12-11 16:44:28.451196731 +0800
+@@ -8,4 +8,4 @@
+ Version: @VERSION@
+ Libs: -L${libdir} -lgwibber-gtk
+ Cflags: -I${includedir}
+-Requires: glib-2.0 gthread-2.0 gobject-2.0 gio-2.0 gio-unix-2.0 dbus-glib-1 gtk+-2.0 gwibber-@GWIBBER_API_VERSION@
++Requires: glib-2.0 gthread-2.0 gobject-2.0 gio-2.0 gio-unix-2.0 libnotify gtk+-3.0 gwibber-@GWIBBER_API_VERSION@

@@ -1,0 +1,24 @@
+--- data/gwibber.desktop.in.in~	2012-08-24 23:20:00.000000000 +0800
++++ data/gwibber.desktop.in.in	2012-12-11 17:39:19.832340780 +0800
+@@ -9,9 +9,3 @@
+ Categories=GTK;GNOME;Network;
+ X-GNOME-Gettext-Domain=gwibber
+ X-Ayatana-Appmenu-Show-Stubs=False
+-Actions=UpdateStatus
+-
+-[Desktop Action UpdateStatus]
+-Name=Update Status
+-Exec=gwibber-poster
+-OnlyShowIn=Messaging Menu;
+--- data/gwibber.desktop.in~	2012-10-05 00:15:30.000000000 +0800
++++ data/gwibber.desktop.in	2012-12-11 17:39:25.292492358 +0800
+@@ -9,9 +9,3 @@
+ Categories=GTK;GNOME;Network;
+ X-GNOME-Gettext-Domain=gwibber
+ X-Ayatana-Appmenu-Show-Stubs=False
+-Actions=UpdateStatus
+-
+-[Desktop Action UpdateStatus]
+-Name=Update Status
+-Exec=gwibber-poster
+-OnlyShowIn=Messaging Menu;
