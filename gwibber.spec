@@ -8,7 +8,7 @@
 
 Name:		gwibber
 Version:	3.6.0
-Release:	1
+Release:	2
 Summary:	An open source microblogging client for GNOME developed with Python and GTK
 Group:		Networking/Other
 License:	GPLv2+
@@ -45,6 +45,10 @@ Requires: python-dbus
 Requires: python-simplejson
 Requires: python-oauth
 Requires: python-imaging
+Requires: python-httplib2
+Requires: typelib(GnomeKeyring)
+Requires: typelib(Accounts)
+Requires: typelib(Signon)
 
 %description
 Gwibber is an open source microblogging client for GNOME developed with Python
