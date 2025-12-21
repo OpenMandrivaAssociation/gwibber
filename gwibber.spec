@@ -17,6 +17,11 @@ Source0:	http://launchpad.net/gwibber/3.6/%{version}/+download/gwibber-%{version
 Source1:	https://launchpad.net/gwibber-service-sina/trunk/0.9.1/+download/gwibber-service-sina-0.9.1.tar.gz
 Patch0:		gwibber-3.6.0-drop-gtk2.patch
 Patch1:		gwibber-3.6.0-desktop-file.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(dee-1.0) >= 1.0.0
 BuildRequires:	pkgconfig(gdk-3.0) >= 3.2
 BuildRequires:	pkgconfig(gee-1.0)
